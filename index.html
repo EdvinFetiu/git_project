@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git + Netlify Test</title>
+  <style>
+    :root {
+      --bg: #f3f6fb;
+      --ink: #14213d;
+      --muted: #5c6b85;
+      --accent: #2f6fed;
+      --card: #ffffff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0e1422;
+        --ink: #eef2fb;
+        --muted: #9aa8c4;
+        --accent: #6c9cff;
+        --card: #172036;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+    main {
+      width: 100%;
+      max-width: 560px;
+      background: var(--card);
+      border-radius: 16px;
+      padding: 40px 32px;
+      box-shadow: 0 8px 30px rgba(20, 33, 61, 0.12);
+    }
+    h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.2; margin-bottom: 12px; }
+    p { color: var(--muted); margin-bottom: 20px; }
+    .version {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    button {
+      margin-top: 24px;
+      display: block;
+      padding: 12px 20px;
+      border: 2px solid var(--accent);
+      border-radius: 10px;
+      background: transparent;
+      color: var(--accent);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: var(--accent); color: #fff; }
+    button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>My first deploy</h1>
+    <p>This page goes from my computer to GitHub to Netlify. If you can see it online, the pipeline works.</p>
+    <span class="version">Version 1</span>
+    <button id="btn" type="button">Click me</button>
+    <p id="out" style="margin-top:16px;margin-bottom:0;"></p>
+  </main>
+
+  <script>
+    var clicks = 0;
+    document.getElementById("btn").addEventListener("click", function () {
+      clicks++;
+      document.getElementById("out").textContent = "Clicked " + clicks + (clicks === 1 ? " time" : " times");
+    });
+  </script>
+</body>
+</html>
